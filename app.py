@@ -7,8 +7,8 @@ from forms import UserSignupForm, UserLoginForm, UserReviewForm
 CURR_USER_KEY = "curr_user"
 
 app=Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql:///cocktails'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "postgresql:///cocktails")
+# app.config['SQLALCHEMY_DATABASE_URI']='postgresql:///cocktails'
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY']='mySecret'
 
