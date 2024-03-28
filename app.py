@@ -2,6 +2,7 @@ import os
 from flask import Flask, session, render_template, request, flash, redirect
 #from sqlalchemy.exc import IntegrityError??
 from models import db, connect_db, User, Review, Favorite
+from dotenv import load_dotenv
 import requests
 from forms import UserSignupForm, UserLoginForm, UserReviewForm
 CURR_USER_KEY = "curr_user"
