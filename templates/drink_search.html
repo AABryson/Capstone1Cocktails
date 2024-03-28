@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<!-- ############################## -->
+    <h1 class="ml-4">Here you go</h1>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <img src="{{drink['strDrinkThumb']}}" height="100" with="80">
+    <table class="table table-striped">
+        <tbody>
+            
+            <tr>
+                <td>Drink Name:</td>
+                <td>{{drink['strDrink']}}</td>
+                
+            </tr>
+            <tr>
+                <td>Glass:</td>
+                <td>{{drink['strGlass']}}</td>
+                
+            </tr>
+            <tr>
+                <td>How to make:</td>
+                <td>{{drink['strInstructions']}}</td>
+            </tr>
+            <tr>
+                <td>Ingredients:</td>
+                <td>
+                {% for details in drink_details %}
+                
+                    {% for item in details %}
+                    {{ item }}
+                 
+                    {% endfor %} ,
+                
+                {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="container">
+        <div class="row">
+            <h2>Reviews</h2>
+        </div>
+        <div class="row">
+            {% for review in reviews %}
+            <h4 class="col-md-2 text-right">{{ review.title }}</h4>
+            <p class="col-md-9 text-left">{{ review.review }}</p>
+            {% endfor %}
+        </div>
+    
+</div>
+
+<!-- <h1>{{drink_name}}</h1>
+<h2>{{glass}}</h2> -->
+{% endblock %}
